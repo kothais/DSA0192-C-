@@ -1,0 +1,21 @@
+#include <iostream>
+
+int main() {
+    try {
+        try {
+            // This block may throw an exception
+            int denominator = 0;
+            int result = 10 / denominator;
+            std::cout << "Result: " << result << std::endl;
+        } catch (const std::exception& inner_exception) {
+            std::cerr << "Inner Exception caught: " << inner_exception.what() << std::endl;
+        }
+
+        // This block may throw a different exception
+        throw std::logic_error("Logic error occurred.");
+    } catch (const std::exception& outer_exception) {
+        std::cerr << "Outer Exception caught: " << outer_exception.what() << std::endl;
+    }
+
+    return 0;
+}
