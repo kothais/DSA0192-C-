@@ -1,0 +1,34 @@
+#include <iostream>
+
+// A class representing a resource that needs cleanup
+class Resource {
+public:
+    Resource() {
+        std::cout << "Resource acquired." << std::endl;
+    }
+
+    ~Resource() {
+        std::cout << "Resource released." << std::endl;
+    }
+};
+
+int main() {
+    try {
+        Resource resource; // Resource acquisition
+
+        // Simulating some operation that may throw an exception
+        bool someCondition = true;
+        if (someCondition) {
+            throw std::runtime_error("An error occurred.");
+        }
+
+        // If an exception is thrown above, the destructor of Resource
+        // will still be called, simulating finally block behavior.
+    }
+    catch (const std::exception& e) {
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+        // Any cleanup that needs to be done before handling the exception
+    }
+
+    return 0;
+}
