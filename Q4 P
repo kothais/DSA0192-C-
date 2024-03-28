@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+
+// Base class Person
+class Person {
+public:
+    // Virtual function greet
+    virtual void greet() const = 0;
+};
+
+// Derived class Student
+class Student : public Person {
+public:
+    // Implementing greet for Student
+    void greet() const override {
+        std::cout << "Hello, I am a student." << std::endl;
+    }
+};
+
+// Derived class Teacher
+class Teacher : public Person {
+public:
+    // Implementing greet for Teacher
+    void greet() const override {
+        std::cout << "Hello, I am a teacher." << std::endl;
+    }
+};
+
+int main() {
+    // Creating instances of Student and Teacher
+    Student student;
+    Teacher teacher;
+
+    // Calling greet for Student and Teacher
+    student.greet(); // Output: Hello, I am a student.
+    teacher.greet(); // Output: Hello, I am a teacher.
+
+    return 0;
+}
