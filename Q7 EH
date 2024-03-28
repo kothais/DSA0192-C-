@@ -1,0 +1,16 @@
+#include <iostream>
+#include <stdexcept>
+
+int main() {
+    try {
+        // Code that may throw an exception
+        int divisor = 0;
+        int result = 10 / divisor;
+        std::cout << "Result: " << result << std::endl;
+    } catch (const std::exception& e) {
+        // Catch block to handle exceptions
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
+
+    return 0;
+}
