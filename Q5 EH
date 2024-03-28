@@ -1,0 +1,16 @@
+#include <iostream>
+#include <stdexcept>
+
+int main() {
+    try {
+        int value = -1;
+        if (value < 0) {
+            throw std::runtime_error("Value cannot be negative."); // Manually throw an exception
+        }
+        std::cout << "Value: " << value << std::endl;
+    } catch (const std::runtime_error& e) {
+        std::cerr << "Caught exception: " << e.what() << std::endl;
+    }
+
+    return 0;
+}
