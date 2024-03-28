@@ -1,0 +1,21 @@
+class Person:
+    def greet(self):
+        raise NotImplementedError("Subclasses must implement the greet method")
+
+
+class Student(Person):
+    def greet(self):
+        print("Hello, I am a student.")
+
+
+class Teacher(Person):
+    def greet(self):
+        print("Hello, I am a teacher.")
+
+
+# Testing the classes
+student = Student()
+teacher = Teacher()
+
+student.greet()  # Output: Hello, I am a student.
+teacher.greet()  # Output: Hello, I am a teacher.
