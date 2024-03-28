@@ -1,0 +1,30 @@
+#include <iostream>
+#include <stdexcept>
+
+// Custom exception class
+class CustomException : public std::exception {
+private:
+    const char* message;
+public:
+    CustomException(const char* msg) : message(msg) {}
+
+    // Override what() method to provide custom exception message
+    const char* what() const noexcept override {
+        return message;
+    }
+};
+
+int main() {
+    try {
+        // Throw a custom exception
+        throw CustomException("Custom exception occurred.");
+    } catch (const CustomException& e) {
+        std::cerr << "Caught CustomException: " << e.what() << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << "Caught standard exception: " << e.what() << std::endl;
+    } catch (...) {
+        std::cerr << "Caught unknown exception." << std::endl;
+    }
+
+    return 0;
+}
