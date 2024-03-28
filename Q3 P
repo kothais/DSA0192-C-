@@ -1,0 +1,56 @@
+#include <iostream>
+
+// Base class Shape
+class Shape {
+public:
+    // Virtual functions for area and volume
+    virtual double area() const = 0;
+    virtual double volume() const = 0;
+};
+
+// Derived class Sphere
+class Sphere : public Shape {
+private:
+    double radius;
+public:
+    // Constructor
+    Sphere(double r) : radius(r) {}
+
+    // Implementing area for Sphere
+    double area() const override {
+        return 4 * 3.14159 * radius * radius;
+    }
+
+    // Implementing volume for Sphere
+    double volume() const override {
+        return (4.0 / 3.0) * 3.14159 * radius * radius * radius;
+    }
+};
+
+// Derived class Cylinder
+class Cylinder : public Shape {
+private:
+    double radius;
+    double height;
+public:
+    // Constructor
+    Cylinder(double r, double h) : radius(r), height(h) {}
+
+    // Implementing area for Cylinder
+    double area() const override {
+        return 2 * 3.14159 * radius * (radius + height);
+    }
+
+    // Implementing volume for Cylinder
+    double volume() const override {
+        return 3.14159 * radius * radius * height;
+    }
+};
+
+int main() {
+    // Creating instances of Sphere and Cylinder
+    Sphere sphere(5);
+    Cylinder cylinder(3, 7);
+
+    // Calling area and volume for Sphere
+    std::cout << "Sphere Area: " << sphere.area() << std::
